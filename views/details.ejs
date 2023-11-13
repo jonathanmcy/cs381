@@ -1,0 +1,36 @@
+<!-- display.ejs -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Restaurant List</title>
+  </head>
+  <body>
+    <h1>Restaurant List</h1>
+    <p>Total Restaurants: <%= nItems %></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Cuisine</th>
+          <th>Phone</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% items.forEach(item => { %>
+          <tr>
+            <td><%= item.name %></td>
+            <td><%= item.cuisine %></td>
+            <td><%= item.phone %></td>
+            <td><%= item.description %></td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+
+        <a href="/edit?_id=<%= item._id %>" >Update the information</a><br><br>
+        <a href="/delete?_id=<%= item._id %>&owner=<%= item.ownerID %>">Delete the information</a><br><br>
+        <a href="/home">Home</a>
+</body>
+</html>
+
